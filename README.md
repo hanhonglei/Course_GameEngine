@@ -2,6 +2,12 @@
 Principle and Application of Game Engine. Will talk Unity 3D
 
 ## 教学计划
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
+
 
 |次|	讲授|实验|讲授内容|实验上机内容|	
 | ------------- |:-------------:| -----:|			
