@@ -1,5 +1,7 @@
-# Course_GameEngine
+# Principle and Application of Game Engine 游戏引擎原理及应用
 Principle and Application of Game Engine. Will talk Unity 3D
+
+More information, please visit my personal website [here](https://hanhonglei.github.io/).
 
 ## 教学计划
 
