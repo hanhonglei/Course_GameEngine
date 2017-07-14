@@ -3,7 +3,7 @@ Principle and Application of Game Engine. Will talk Unity 3D
 
 More information, please visit my personal website [here](https://hanhonglei.github.io/).
 
-Text book [Principle and Application of Game Engine](http://www.hep.com.cn/book/details?uuid=5277e92a-1414-1000-a0f5-3fafc67de19c)is recommendided.
+Text book [Principle and Application of Game Engine](http://www.hep.com.cn/book/details?uuid=5277e92a-1414-1000-a0f5-3fafc67de19c) is recommendided.
 
 ## 教学计划
 
