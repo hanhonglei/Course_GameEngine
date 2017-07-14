@@ -23,4 +23,6 @@ More information, please visit my personal website [here](https://hanhonglei.git
 |14.|3	|2			|音效									|掌握教学游戏引擎中的二维元素的使用方法，比如菜单、精灵技术等	|	
 |15.|3	|2			|联网技术								|掌握教学游戏引擎开发游戏的基本流程		|
 |16.|3	|2			|使用游戏引擎进行游戏开发方法			|按照游戏开发流程利用教学游戏引擎进行游戏作品开发|
+
+- This project is under [GNU GENERAL PUBLIC LICENSE](https://www.gnu.org/licenses/), please check it in the root folder.
 		
