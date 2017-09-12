@@ -1,5 +1,8 @@
 # Principle and Application of Game Engine 游戏引擎原理及应用
-Principle and Application of Game Engine. Will talk Unity 3D
+
+Principle and Application of Game Engine. 
+
+Will talk Unity 3D and algorithms behind the game engine.
 
 More information, please visit my personal website [here](https://hanhonglei.github.io/).
 
