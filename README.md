@@ -8,6 +8,9 @@ More information, please visit my personal website [here](https://hanhonglei.git
 
 Text book [Principle and Application of Game Engine](http://www.hep.com.cn/book/details?uuid=5277e92a-1414-1000-a0f5-3fafc67de19c) is recommendided.
 
+2018春季学期计划：每次课4学时，一共20次课。每次课3名同学进行定题准备，每人十分钟时间介绍自己的资料搜集工作。
+每次课前半段进行游戏引擎原理介绍，后半段进行Unity游戏引擎实践。
+
 ## 教学计划
 
 |次				|	讲授		|实验	|讲授内容		|实验上机要求	|	
