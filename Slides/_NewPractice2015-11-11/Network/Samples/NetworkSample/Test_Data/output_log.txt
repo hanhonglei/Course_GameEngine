@@ -1,0 +1,65 @@
+Initialize engine version: 5.2.0f3 (e7947df39b5c)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: Intel(R) HD Graphics 4600 (ID=0x416)
+    Vendor:   Intel
+    VRAM:     128 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\_Hanhonglei\★教学\★游戏引擎原理及应用\★课程ppt\_NewPractice2015-11-11\Network\Samples\NetworkSample\Test_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\_Hanhonglei\★教学\★游戏引擎原理及应用\★课程ppt\_NewPractice2015-11-11\Network\Samples\NetworkSample\Test_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\_Hanhonglei\★教学\★游戏引擎原理及应用\★课程ppt\_NewPractice2015-11-11\Network\Samples\NetworkSample\Test_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\_Hanhonglei\★教学\★游戏引擎原理及应用\★课程ppt\_NewPractice2015-11-11\Network\Samples\NetworkSample\Test_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\_Hanhonglei\★教学\★游戏引擎原理及应用\★课程ppt\_NewPractice2015-11-11\Network\Samples\NetworkSample\Test_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\_Hanhonglei\★教学\★游戏引擎原理及应用\★课程ppt\_NewPractice2015-11-11\Network\Samples\NetworkSample\Test_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\_Hanhonglei\★教学\★游戏引擎原理及应用\★课程ppt\_NewPractice2015-11-11\Network\Samples\NetworkSample\Test_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\_Hanhonglei\★教学\★游戏引擎原理及应用\★课程ppt\_NewPractice2015-11-11\Network\Samples\NetworkSample\Test_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\_Hanhonglei\★教学\★游戏引擎原理及应用\★课程ppt\_NewPractice2015-11-11\Network\Samples\NetworkSample\Test_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\_Hanhonglei\★教学\★游戏引擎原理及应用\★课程ppt\_NewPractice2015-11-11\Network\Samples\NetworkSample\Test_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\_Hanhonglei\★教学\★游戏引擎原理及应用\★课程ppt\_NewPractice2015-11-11\Network\Samples\NetworkSample\Test_Data\Managed\System.Core.dll (this message is harmless)
+- Completed reload, in  0.066 seconds
+desktop: 3200x1800 60Hz; virtual: 3200x1800 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+Platform assembly: C:\_Hanhonglei\★教学\★游戏引擎原理及应用\★课程ppt\_NewPractice2015-11-11\Network\Samples\NetworkSample\Test_Data\Managed\System.dll (this message is harmless)
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: e50 -> priority: 1 
+  Thread -> id: 2e1c -> priority: 1 
+MatchMakingClient ListMatches :https://mm.unet.unity3d.com/json/reply/ListMatchRequest
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+JSON Response: [[UnityEngine.Networking.Match.ListMatchResponse]-success:True-extendedInfo:]-matches.Count:1
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+MatchMakingClient Join :https://mm.unet.unity3d.com/json/reply/JoinMatchRequest
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+JSON Response: [[UnityEngine.Networking.Match.JoinMatchResponse]-success:True-extendedInfo:]-address:52.74.72.218,port:9999,networkId:0x001000000000B8DA,nodeId:0x2B90,usingRelay:True
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.899671 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1340.
+Total: 2.500319 ms (FindLiveObjects: 0.101744 ms CreateObjectMapping: 0.082555 ms MarkObjects: 2.282997 ms  DeleteObjects: 0.032129 ms)
+
+Warning: not well formed packet received; connection. Possible hack attack, connection will be closed. Connection {1}
+UNet Client Disconnect Error: BadMessage
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.009855 ms
+Multiple NetworkManagers detected in the scene. Only one NetworkManager can exist at a time. The duplicate NetworkManager will not be used.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+
+Unloading 351 unused Assets to reduce memory usage. Loaded Objects now: 662.
+Total: 1.842997 ms (FindLiveObjects: 0.055780 ms CreateObjectMapping: 0.045517 ms MarkObjects: 1.603809 ms  DeleteObjects: 0.137443 ms)
+

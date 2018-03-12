@@ -1,0 +1,50 @@
+Initialize engine version: 5.2.3f1 (f3d16a1fa2dd)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: Intel(R) HD Graphics 4600 (ID=0x416)
+    Vendor:   Intel
+    VRAM:     128 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\_Hanhonglei\★教学\★游戏引擎原理及应用\★课程ppt\_NewPractice2015-11-11\Network\NetworkTest\NetworkTest\Test_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\_Hanhonglei\★教学\★游戏引擎原理及应用\★课程ppt\_NewPractice2015-11-11\Network\NetworkTest\NetworkTest\Test_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\_Hanhonglei\★教学\★游戏引擎原理及应用\★课程ppt\_NewPractice2015-11-11\Network\NetworkTest\NetworkTest\Test_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\_Hanhonglei\★教学\★游戏引擎原理及应用\★课程ppt\_NewPractice2015-11-11\Network\NetworkTest\NetworkTest\Test_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\_Hanhonglei\★教学\★游戏引擎原理及应用\★课程ppt\_NewPractice2015-11-11\Network\NetworkTest\NetworkTest\Test_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\_Hanhonglei\★教学\★游戏引擎原理及应用\★课程ppt\_NewPractice2015-11-11\Network\NetworkTest\NetworkTest\Test_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\_Hanhonglei\★教学\★游戏引擎原理及应用\★课程ppt\_NewPractice2015-11-11\Network\NetworkTest\NetworkTest\Test_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\_Hanhonglei\★教学\★游戏引擎原理及应用\★课程ppt\_NewPractice2015-11-11\Network\NetworkTest\NetworkTest\Test_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\_Hanhonglei\★教学\★游戏引擎原理及应用\★课程ppt\_NewPractice2015-11-11\Network\NetworkTest\NetworkTest\Test_Data\Managed\System.Core.dll (this message is harmless)
+- Completed reload, in  0.128 seconds
+desktop: 3200x1800 60Hz; virtual: 3200x1800 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+Platform assembly: C:\_Hanhonglei\★教学\★游戏引擎原理及应用\★课程ppt\_NewPractice2015-11-11\Network\NetworkTest\NetworkTest\Test_Data\Managed\System.dll (this message is harmless)
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 412c -> priority: 1 
+  Thread -> id: 46c8 -> priority: 1 
+Network configuration mismatch detected. The number of networked scripts on the client does not match the number of networked scripts on the server. This could be caused by lazy loading of scripts on the client. This warning can be disabled by the checkbox NetworkManager Script CRC Check.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+CRC Local Dump Control : 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Failed to spawn server object, assetId=33dca6ae307d23498a37df6b72021ab netId=1
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Failed to spawn server object, assetId=33dca6ae307d23498a37df6b72021ab netId=2
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Socket: bind failed, error: Only one usage of each socket address (protocol/network address/port) is normally permitted.Cannot open socket on ip {*} and port {7777}; check please your network, most probably port has been already occupied
+ 
+(Filename:  Line: 488)
+
+StartServer listen failed.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
