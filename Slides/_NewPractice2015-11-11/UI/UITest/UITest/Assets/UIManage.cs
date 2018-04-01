@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIManage : MonoBehaviour {
 
@@ -18,7 +19,7 @@ public class UIManage : MonoBehaviour {
 	}
     public void EnterGame()
     {
-        Application.LoadLevel(1);
+        SceneManager.LoadScene(1);
     }
     public void AdjustValue()
     {
