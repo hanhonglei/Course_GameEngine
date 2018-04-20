@@ -3,11 +3,11 @@ using System.Collections;
 
 public class NavigationTest : MonoBehaviour {
 
-    private NavMeshAgent agent;
+    private UnityEngine.AI.NavMeshAgent agent;
     public Transform pos;
 	// Use this for initialization
 	void Start () {
-        agent = GetComponent<NavMeshAgent>();
+        agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         agent.SetDestination(pos.position);     
 	}
 	
