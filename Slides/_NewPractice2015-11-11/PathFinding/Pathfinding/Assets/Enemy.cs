@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float patrolSpeed = 2f;                          // The nav mesh agent's speed when patrolling.
     public float chaseSpeed = 5f;                           // The nav mesh agent's speed when chasing.
     public float chaseWaitTime = 5f;                        // The amount of time to wait when the last sighting is reached.
     public float patrolWaitTime = 1f;                       // The amount of time to wait when the patrol way point is reached.
@@ -19,6 +18,10 @@ public class Enemy : MonoBehaviour
     private int wayPointIndex;                              // A counter for the way point array.
     private bool chase = false;                                     // 当遇到攻击或者在射击的时候玩家跑开的话
     private Transform player;                               // Reference to the player's transform.
+
+    public Rigidbody bullet;
+    public float shootFreeTime = 2f;
+    private float shootTimer = 0f;
 
     void Awake()
     {
@@ -63,14 +66,21 @@ public class Enemy : MonoBehaviour
         lookPos.y = transform.position.y;
 
         Vector3 targetDir = lookPos - transform.position;
-        float step = shootRotSpeed * Time.deltaTime;
-        Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0F);
-        transform.rotation = Quaternion.LookRotation(newDir);
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(targetDir), Mathf.Min(1F, Time.deltaTime * shootRotSpeed));
 
         // Stop the enemy where it is.
         nav.isStopped = true;
 
-        Debug.Log("Shoot player!");
+        if(Vector3.Angle(transform.forward, targetDir) < 2)
+        {
+            if(shootTimer > shootFreeTime)
+            {
+               Instantiate(bullet, transform.position, Quaternion.LookRotation(player.position - transform.position));
+                shootTimer = 0f;
+
+            }
+            shootTimer += Time.deltaTime;
+        }
     }
 
 
