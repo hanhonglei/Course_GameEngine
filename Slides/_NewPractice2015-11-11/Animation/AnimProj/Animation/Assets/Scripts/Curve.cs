@@ -12,6 +12,6 @@ public class Curve : MonoBehaviour {
 	void Update () {
 		float curve = GetComponent<Animator> ().GetFloat("TestCurve");
         Head.localScale = new Vector3(1+curve, 1+curve, 1+curve);
-		
+        Debug.Log(curve);
 	}
 }
