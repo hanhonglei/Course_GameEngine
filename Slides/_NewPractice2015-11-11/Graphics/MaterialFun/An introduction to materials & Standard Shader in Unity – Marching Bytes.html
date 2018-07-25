@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<!-- saved from url=(0083)http://www.marchingbytes.com/an-introduction-to-materials-standard-shader-in-unity/ -->
+<html lang="en-US"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+	<link rel="pingback" href="http://www.marchingbytes.com/xmlrpc.php">
+	<title>An introduction to materials &amp; Standard Shader in Unity – Marching Bytes</title>
+<script async="" src="https://google-analytics.com/analytics.js"></script><script id="twitter-wjs" src="http://platform.twitter.com/widgets.js"></script><script async="" src="./An introduction to materials &amp; Standard Shader in Unity – Marching Bytes_files/589c3747454ccb001294959b.js.下载"></script><script id="facebook-jssdk" src="http://connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v2.6"></script><script>(function(d, s, id){
+				 var js, fjs = d.getElementsByTagName(s)[0];
+				 if (d.getElementById(id)) {return;}
+				 js = d.createElement(s); js.id = id;
+				 js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";
+				 fjs.parentNode.insertBefore(js, fjs);
+			   }(document, 'script', 'facebook-jssdk'));</script><link rel="dns-prefetch" href="http://w.sharethis.com/">
+<link rel="dns-prefetch" href="http://platform-api.sharethis.com/">
+<link rel="dns-prefetch" href="http://fonts.googleapis.com/">
+<link rel="dns-prefetch" href="http://maxcdn.bootstrapcdn.com/">
+<link rel="dns-prefetch" href="http://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="Marching Bytes » Feed" href="http://www.marchingbytes.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="Marching Bytes » Comments Feed" href="http://www.marchingbytes.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Marching Bytes » An introduction to materials &amp; Standard Shader in Unity Comments Feed" href="http://www.marchingbytes.com/an-introduction-to-materials-standard-shader-in-unity/feed/">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.4\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.4\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/www.marchingbytes.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.9.6"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55357,56692,8205,9792,65039],[55357,56692,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./An introduction to materials &amp; Standard Shader in Unity – Marching Bytes_files/wp-emoji-release.min.js.下载" type="text/javascript" defer=""></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="crayon-css" href="./An introduction to materials &amp; Standard Shader in Unity – Marching Bytes_files/crayon.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="simple-share-buttons-adder-indie-css" href="./An introduction to materials &amp; Standard Shader in Unity – Marching Bytes_files/css" type="text/css" media="all">
+<link rel="stylesheet" id="simple-share-buttons-adder-font-awesome-css" href="./An introduction to materials &amp; Standard Shader in Unity – Marching Bytes_files/font-awesome.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="spacious_style-css" href="./An introduction to materials &amp; Standard Shader in Unity – Marching Bytes_files/style.css" type="text/css" media="all">
+<link rel="stylesheet" id="spacious_dark_style-css" href="./An introduction to materials &amp; Standard Shader in Unity – Marching Bytes_files/dark.css" type="text/css" media="all">
+<link rel="stylesheet" id="spacious-genericons-css" href="./An introduction to materials &amp; Standard Shader in Unity – Marching Bytes_files/genericons.css" type="text/css" media="all">
+<link rel="stylesheet" id="spacious-font-awesome-css" href="./An introduction to materials &amp; Standard Shader in Unity – Marching Bytes_files/font-awesome.min(1).css" type="text/css" media="all">
+<link rel="stylesheet" id="google_fonts-css" href="./An introduction to materials &amp; Standard Shader in Unity – Marching Bytes_files/css(1)" type="text/css" media="all">
+<link rel="stylesheet" id="slb_core-css" href="./An introduction to materials &amp; Standard Shader in Unity – Marching Bytes_files/app.css" type="text/css" media="all">
+<link rel="stylesheet" id="forget-about-shortcode-buttons-css" href="./An introduction to materials &amp; Standard Shader in Unity – Marching Bytes_files/button-styles.css" type="text/css" media="all">
+<script type="text/javascript" src="./An introduction to materials &amp; Standard Shader in Unity – Marching Bytes_files/jquery.js.下载"></script>
+<script type="text/javascript" src="./An introduction to materials &amp; Standard Shader in Unity – Marching Bytes_files/jquery-migrate.min.js.下载"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var CrayonSyntaxSettings = {"version":"_2.7.2_beta","is_admin":"0","ajaxurl":"http:\/\/www.marchingbytes.com\/wp-admin\/admin-ajax.php","prefix":"crayon-","setting":"crayon-setting","selected":"crayon-setting-selected","changed":"crayon-setting-changed","special":"crayon-setting-special","orig_value":"data-orig-value","debug":""};
+var CrayonSyntaxStrings = {"copy":"Press %s to Copy, %s to Paste","minimize":"Click To Expand Code"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./An introduction to materials &amp; Standard Shader in Unity – Marching Bytes_files/crayon.min.js.下载"></script>
+<script id="st_insights_js" type="text/javascript" src="./An introduction to materials &amp; Standard Shader in Unity – Marching Bytes_files/st_insights.js.下载"></script>
+<script type="text/javascript" src="./An introduction to materials &amp; Standard Shader in Unity – Marching Bytes_files/spacious-custom.js.下载"></script>
+<!--[if lte IE 8]>
+<script type='text/javascript' src='http://www.marchingbytes.com/wp-content/themes/spacious/js/html5shiv.min.js?ver=4.9.6'></script>
+<![endif]-->
+<script type="text/javascript" src="./An introduction to materials &amp; Standard Shader in Unity – Marching Bytes_files/sharethis.js.下载"></script>
+<link rel="https://api.w.org/" href="http://www.marchingbytes.com/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.marchingbytes.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.marchingbytes.com/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="Deploying your app – IaaS vs PaaS : Which one to choose?" href="http://www.marchingbytes.com/iaas-vs-paas/">
+<meta name="generator" content="WordPress 4.9.6">
+<link rel="canonical" href="http://www.marchingbytes.com/an-introduction-to-materials-standard-shader-in-unity/">
+<link rel="shortlink" href="http://www.marchingbytes.com/?p=290">
+<link rel="alternate" type="application/json+oembed" href="http://www.marchingbytes.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.marchingbytes.com%2Fan-introduction-to-materials-standard-shader-in-unity%2F">
+<link rel="alternate" type="text/xml+oembed" href="http://www.marchingbytes.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.marchingbytes.com%2Fan-introduction-to-materials-standard-shader-in-unity%2F&amp;format=xml">
+		<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+				<style type="text/css"> blockquote { border-left: 3px solid #3f83bf; }
+			.spacious-button, input[type="reset"], input[type="button"], input[type="submit"], button { background-color: #3f83bf; }
+			.previous a:hover, .next a:hover { 	color: #3f83bf; }
+			a { color: #3f83bf; }
+			#site-title a:hover { color: #3f83bf; }
+			.main-navigation ul li.current_page_item a, .main-navigation ul li:hover > a { color: #3f83bf; }
+			.main-navigation ul li ul { border-top: 1px solid #3f83bf; }
+			.main-navigation ul li ul li a:hover, .main-navigation ul li ul li:hover > a, .main-navigation ul li.current-menu-item ul li a:hover, .main-navigation ul li:hover > .sub-toggle { color: #3f83bf; }
+			.site-header .menu-toggle:hover.entry-meta a.read-more:hover,#featured-slider .slider-read-more-button:hover,.call-to-action-button:hover,.entry-meta .read-more-link:hover,.spacious-button:hover, input[type="reset"]:hover, input[type="button"]:hover, input[type="submit"]:hover, button:hover { background: #0d518d; }
+			.main-small-navigation li:hover { background: #3f83bf; }
+			.main-small-navigation ul > .current_page_item, .main-small-navigation ul > .current-menu-item { background: #3f83bf; }
+			.main-navigation a:hover, .main-navigation ul li.current-menu-item a, .main-navigation ul li.current_page_ancestor a, .main-navigation ul li.current-menu-ancestor a, .main-navigation ul li.current_page_item a, .main-navigation ul li:hover > a  { color: #3f83bf; }
+			.small-menu a:hover, .small-menu ul li.current-menu-item a, .small-menu ul li.current_page_ancestor a, .small-menu ul li.current-menu-ancestor a, .small-menu ul li.current_page_item a, .small-menu ul li:hover > a { color: #3f83bf; }
+			#featured-slider .slider-read-more-button { background-color: #3f83bf; }
+			#controllers a:hover, #controllers a.active { background-color: #3f83bf; color: #3f83bf; }
+			.widget_service_block a.more-link:hover, .widget_featured_single_post a.read-more:hover,#secondary a:hover,logged-in-as:hover  a,.single-page p a:hover{ color: #0d518d; }
+			.breadcrumb a:hover { color: #3f83bf; }
+			.tg-one-half .widget-title a:hover, .tg-one-third .widget-title a:hover, .tg-one-fourth .widget-title a:hover { color: #3f83bf; }
+			.pagination span ,.site-header .menu-toggle:hover{ background-color: #3f83bf; }
+			.pagination a span:hover { color: #3f83bf; border-color: #3f83bf; }
+			.widget_testimonial .testimonial-post { border-color: #3f83bf #EAEAEA #EAEAEA #EAEAEA; }
+			.call-to-action-content-wrapper { border-color: #EAEAEA #EAEAEA #EAEAEA #3f83bf; }
+			.call-to-action-button { background-color: #3f83bf; }
+			#content .comments-area a.comment-permalink:hover { color: #3f83bf; }
+			.comments-area .comment-author-link a:hover { color: #3f83bf; }
+			.comments-area .comment-author-link span { background-color: #3f83bf; }
+			.comment .comment-reply-link:hover { color: #3f83bf; }
+			.nav-previous a:hover, .nav-next a:hover { color: #3f83bf; }
+			#wp-calendar #today { color: #3f83bf; }
+			.widget-title span { border-bottom: 2px solid #3f83bf; }
+			.footer-widgets-area a:hover { color: #3f83bf !important; }
+			.footer-socket-wrapper .copyright a:hover { color: #3f83bf; }
+			a#back-top:before { background-color: #3f83bf; }
+			.read-more, .more-link { color: #3f83bf; }
+			.post .entry-title a:hover, .page .entry-title a:hover { color: #3f83bf; }
+			.post .entry-meta .read-more-link { background-color: #3f83bf; }
+			.post .entry-meta a:hover, .type-page .entry-meta a:hover { color: #3f83bf; }
+			.single #content .tags a:hover { color: #3f83bf; }
+			.widget_testimonial .testimonial-icon:before { color: #3f83bf; }
+			a#scroll-up { background-color: #3f83bf; }
+			.search-form span { background-color: #3f83bf; }</style>
+		</head>
+
+<body class="post-template-default single single-post postid-290 single-format-standard wp-custom-logo do-etfw  blog-medium">
+<div id="page" class="hfeed site">
+	
+	
+	<header id="masthead" class="site-header clearfix ">
+
+		
+		<div id="header-text-nav-container">
+						<div class="inner-wrap">
+			
+				<div id="header-text-nav-wrap" class="clearfix">
+					<div id="header-left-section">
+														<div id="header-logo-image">
+									
+									<a href="http://www.marchingbytes.com/" class="custom-logo-link" rel="home" itemprop="url"><img width="95" height="59" src="./An introduction to materials &amp; Standard Shader in Unity – Marching Bytes_files/g3799.png" class="custom-logo" alt="Marching Bytes" itemprop="logo"></a>								</div><!-- #header-logo-image -->
+
+							
+							<div id="header-text" class="">
+																	<h3 id="site-title">
+										<a href="http://www.marchingbytes.com/" title="Marching Bytes" rel="home">Marching Bytes</a>
+									</h3>
+								<!-- #site-description -->
+							</div><!-- #header-text -->
+
+												</div><!-- #header-left-section -->
+					<div id="header-right-section">
+						
+							<nav id="site-navigation" class="main-navigation" role="navigation">
+								<p class="menu-toggle">Menu</p>
+								<div class="menu-primary-container"><ul id="menu-main" class="menu nav-menu"><li id="menu-item-47" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-47"><a href="http://www.marchingbytes.com/">Home</a></li>
+<li id="menu-item-45" class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-45"><a href="http://www.marchingbytes.com/blog/">Blog</a></li>
+<li id="menu-item-282" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-282"><a href="http://www.marchingbytes.com/an-introduction-to-materials-standard-shader-in-unity/#">Android Apps</a>
+<ul class="sub-menu">
+	<li id="menu-item-283" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-283"><a target="_blank" href="https://play.google.com/store/apps/details?id=com.marchingbytes.moneyman&amp;hl=en">MoneyMan Expense Manager</a></li>
+</ul>
+</li>
+<li id="menu-item-127" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-127"><a href="http://www.marchingbytes.com/an-introduction-to-materials-standard-shader-in-unity/#">iOS Apps</a>
+<ul class="sub-menu">
+	<li id="menu-item-128" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-128"><a target="_blank" href="https://itunes.apple.com/us/app/taskman-personal-task-manager/id947719217?mt=8">TaskMan – Personal Task Manager</a></li>
+	<li id="menu-item-129" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-129"><a target="_blank" href="https://itunes.apple.com/us/app/easy-expense-manager/id775449351?mt=8">Easy Expense Manager</a></li>
+	<li id="menu-item-130" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-130"><a target="_blank" href="https://itunes.apple.com/us/app/my-momentz/id449002954?mt=8">My Momentz</a></li>
+	<li id="menu-item-351" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-351"><a target="_blank" href="https://itunes.apple.com/us/app/kicked-fetal-movement-counter/id1222387203?ls=1&amp;mt=8">Kicked – Fetal movement counter</a></li>
+	<li id="menu-item-352" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-352"><a target="_blank" href="https://itunes.apple.com/us/app/kicked-2-advanced-fetal-movement-counter/id1237756393?ls=1&amp;mt=8">Kicked 2 – Advanced Fetal Movement Counter</a></li>
+</ul>
+</li>
+<li id="menu-item-74" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-74"><a href="http://www.marchingbytes.com/an-introduction-to-materials-standard-shader-in-unity/#">Games</a>
+<ul class="sub-menu">
+	<li id="menu-item-348" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-348"><a target="_blank" href="https://play.google.com/store/apps/details?id=com.marchingbytes.speedmania&amp;hl=en">Speed Mania</a></li>
+	<li id="menu-item-206" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-206"><a href="http://www.marchingbytes.com/busy-roads/">Busy Roads</a></li>
+	<li id="menu-item-75" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-75"><a href="http://www.marchingbytes.com/assault-vector/">Assault Vector</a></li>
+	<li id="menu-item-86" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-86"><a href="http://www.marchingbytes.com/hawks/">Hawks: Guardians of the Skies</a></li>
+	<li id="menu-item-95" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-95"><a href="http://www.marchingbytes.com/sky-dash/">Sky Dash</a></li>
+	<li id="menu-item-100" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-100"><a href="http://www.marchingbytes.com/beat-the-multiples/">Beat The Multiples</a></li>
+</ul>
+</li>
+<li id="menu-item-101" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-101"><a href="http://www.marchingbytes.com/an-introduction-to-materials-standard-shader-in-unity/#">Unity Plugins</a>
+<ul class="sub-menu">
+	<li id="menu-item-269" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-269"><a target="_blank" href="https://www.assetstore.unity3d.com/en/#!/content/58482">TileO2 Tile Editor</a></li>
+	<li id="menu-item-102" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-102"><a target="_blank" href="https://www.assetstore.unity3d.com/#/content/10937">Easy StoreKit</a></li>
+	<li id="menu-item-103" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-103"><a target="_blank" href="https://www.assetstore.unity3d.com/en/#!/content/16415">Easy Social</a></li>
+	<li id="menu-item-186" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-186"><a target="_blank" href="https://www.assetstore.unity3d.com/#!/content/31928">Easy Object Pool</a></li>
+	<li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-104"><a target="_blank" href="https://www.assetstore.unity3d.com/en/#!/content/15984">Easy Alert</a></li>
+	<li id="menu-item-110" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-110"><a href="http://www.marchingbytes.com/plugin-documentation/">Plugin Documentation</a></li>
+</ul>
+</li>
+<li id="menu-item-131" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-131"><a href="http://www.marchingbytes.com/an-introduction-to-materials-standard-shader-in-unity/#">Mac Apps</a>
+<ul class="sub-menu">
+	<li id="menu-item-148" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-148"><a href="http://www.marchingbytes.com/playlist2folder/">Playlist2Folder</a></li>
+	<li id="menu-item-147" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-147"><a href="http://www.marchingbytes.com/folder-size-summary/">Folder Size Summary</a></li>
+</ul>
+</li>
+<li id="menu-item-44" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-44"><a href="http://www.marchingbytes.com/j2me-apps/">J2ME Apps</a></li>
+<li id="menu-item-46" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-46"><a href="http://www.marchingbytes.com/about/">About</a></li>
+<li id="menu-item-338" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-338"><a href="http://www.marchingbytes.com/support/">Support</a></li>
+</ul></div>							</nav>
+
+												</div><!-- #header-right-section -->
+
+				</div><!-- #header-text-nav-wrap -->
+								</div><!-- .inner-wrap -->
+						</div><!-- #header-text-nav-container -->
+
+		
+						<div class="header-post-title-container clearfix">
+					<div class="inner-wrap">
+						<div class="post-title-wrapper">
+																								<h1 class="header-post-title-class">An introduction to materials &amp; Standard Shader in Unity</h1>
+																						</div>
+											</div>
+				</div>
+					</header>
+			<div id="main" class="clearfix">
+		<div class="inner-wrap">
+
+	
+	<div id="primary">
+		<div id="content" class="clearfix">
+			
+				
+<article id="post-290" class="post-290 post type-post status-publish format-standard has-post-thumbnail hentry category-materials category-unity category-unity3d tag-material tag-shader tag-standard-shader tag-unity tag-unity3d">
+		<div class="entry-content clearfix">
+		<p><img src="./An introduction to materials &amp; Standard Shader in Unity – Marching Bytes_files/intro.gif" alt="intro" width="250" height="250" class="alignright size-full wp-image-291"></p>
+<p>Every beautiful looking game contains a variety of different surfaces: wood, metal, rubber, plastics, holograms, shiny alien artifacts &amp; so much more! When using Unity, this visual jazz can be achieved by using the Unity Standard Shader to create materials with different kinds of look &amp; feel.</p>
+<p>In this tutorial, we will be experimenting with the Standard Shader &amp; create a variety of Materials using this amazing shader. Also, we will touch upon the concept of Physically Based Rendering &amp; see how it affects the materials created using the Standard Shader.</p>
+<h2>Getting Started</h2>
+<p>Download the <a href="http://www.marchingbytes.com/wp-content/uploads/2016/07/MaterialFun.zip">Material Fun</a> Project. This project contains some sample materials and the assets required to create those materials. Once you have the project open in Unity, open the <em>Main</em> scene and hit the play button. You should see a couple of beautiful looking spheres in your game window.</p>
+<p>Before we proceed, let’s go over a couple of concepts.</p>
+<ul>
+<li><em>Shaders:</em> Shaders are scripts which contain the algorithms that tell the computer how to render each pixel.</li>
+<li><em>Materials:</em> Materials define how a surface is to be rendered. This is achieved by selecting a shader for the material and then setting the public properties of the underlying shader.</li>
+<li><em>Physically Based Rendering (PBR):</em> PBR is a technique which mimics the interaction of light with different materials in a realistic way. In Unity, PBR is provided out-of-the-box when using the Unity Standard Shader.</li>
+</ul>
+<h2>Playing around with the Unity Standard Shader</h2>
+<p>Yay! It is time to create some beautiful materials.</p>
+<ol>
+<li>Create a new scene by selecting <em>File\New Scene</em></li>
+<li>Create a new sphere by selecting <em>GameObject\3D Object\Sphere</em></li>
+</ol>
+<p>Note that the sphere that you created is white-ish in color. All newly created objects are assigned the default material by default. Let’s create a new material and assign it to our sphere.</p>
+<ol>
+<li>Create a new material by selecting <em>Assets\Create\Material</em></li>
+<li>Give this material a name. In our case, it is <i>CoolMaterial.</i></li>
+<li>Assign this material to your sphere.</li>
+<li>Select the sphere</li>
+<li>Select the <em>MeshRenderer</em> component</li>
+<li>In the Materials drop-down, select the Element 0 and select <i>CoolMaterial</i></li>
+</ol>
+<p><img class="aligncenter size-full wp-image-134705" src="./An introduction to materials &amp; Standard Shader in Unity – Marching Bytes_files/mat-selection.gif" alt="mat-selection" width="700" height="674"></p>
+<p>If you have noticed, assigning this new material to our sphere made no visible change to its look &amp; feel. This is because our cool new material is set up at the defaults. Default settings == No oomph!</p>
+<p>It’s time to liven things up!<br>
+Select the <em>CoolMaterial</em> in the project explorer &amp; inspect its properties in the inspector. The first drop-down selects the shader that we want to use for this material. Leave the shader selection at <em>Standard</em>.</p>
+<h3>Rendering Modes</h3>
+<p>The standard shader comes with 4 different rendering modes:</p>
+<ul>
+<li><em>Opaque:</em> The default value, is suitable for rendering opaque objects</li>
+<li><em>Cutout:</em> Allows you to render objects with either fully transparent or fully opaque areas</li>
+<li><em>Fade:</em> The level of transparency allows you to fade objects</li>
+<li><em>Transparent:</em> Allows you to render transparent objects such as glass, clear plastics etc.</li>
+</ul>
+<p>If you are as inquisitive as I am, you might have tried changing the rendering mode of the material but noticed no change in the output. This is because the rendering mode does not act on a material by itself but works based on the settings of the Albedo parameter.</p>
+<h3>Albedo</h3>
+<p>The Albedo parameter of the material defines the color &amp; transparency of the material. There are two ways to change the color of the material:</p>
+<ol>
+<li>Edit the color &amp; transparency by using the color picker. However, this will affect the whole object</li>
+<li>The recommended way is to assign a texture to the Albedo parameter. This texture will define the color &amp; transparency of the material. Note that the transparency values will affect your material only if the Rendering Mode is set to one of the non-opaque values.</li>
+</ol>
+<p>Assign a texture to the Albedo of your material by selecting the circle icon next to the Albedo label.<br>
+<img class="aligncenter size-full wp-image-134708" src="./An introduction to materials &amp; Standard Shader in Unity – Marching Bytes_files/albedo.png" alt="albedo" width="184" height="22"><br>
+Select the <em>camo</em> texture from the list of available textures. Notice that your sphere is covered with a jazzy pattern now! It is still possible to change the overall color tint of the material by modifying the color property. Go ahead &amp; give it a try.</p>
+<p><img class="aligncenter size-large wp-image-134709" src="./An introduction to materials &amp; Standard Shader in Unity – Marching Bytes_files/albedo_opaque.png" alt="albedo_opaque"></p>
+<p>Now set your rendering mode to <em>Cutout</em>. Notice that there is no change in the material’s output. This is because or texture does not have any transparent areas. In the Albedo parameter, select the <em>cut</em> texture &amp; notice that the sphere has fully transparent &amp; fully opaque areas now. If your texture has varying levels of transparency, you can set the cutoff value by using the <em>Alpha Cutoff</em> slider.</p>
+<p><img class="aligncenter size-large wp-image-134710" src="./An introduction to materials &amp; Standard Shader in Unity – Marching Bytes_files/cutout.png" alt="cutout"></p>
+<p>On to faded materials. Set the rendering mode to <em>Fade</em>. In the Albedo parameter, select the <em>camo</em> texture &amp; reduce the transparency of the material by selecting the color picker &amp; reducing the alpha value (alpha is controlled by the A value in the color picker).</p>
+<p><img class="aligncenter size-large wp-image-134712" src="./An introduction to materials &amp; Standard Shader in Unity – Marching Bytes_files/fade.png" alt="fade"></p>
+<p>If you want your material to have varying levels of transparency, set the rendering mode to <em>Transparent</em> &amp; assign an albedo texture having varying levels of transparency. In our case, select the <em>transparent</em> texture and check out the result.</p>
+<p><img class="aligncenter size-large wp-image-134722" src="./An introduction to materials &amp; Standard Shader in Unity – Marching Bytes_files/transparent.png" alt="transparent"></p>
+<h3>Metallic</h3>
+<p>The metallic parameter defines amount of light reflected by the material. The metallic parameter can be controlled in the following ways:</p>
+<ol>
+<li>By modifying the Metallic &amp; Smoothness sliders. The metallic value defines how ‘metallic’ a material is. A metallic value closer to 1 will reflect more light. The smoothness value defines how smooth the material is.</li>
+<li>By assigning a texture map to the Metallic parameter. When you assign a texture to the metallic property, both of the Metallic &amp; Smoothness sliders will disappear. The Red channel of the texture controls the metallic values of the material. The Alpha channel of the texture controls the smoothness of the material. Assigning a texture to the metallic parameter is useful when your material has areas of differing metallic &amp; smoothness values.</li>
+</ol>
+<p>Just to try things out, set the rendering mode to <em>Opaque</em>, assign the <em>camo</em> texture to albedo and <em>camo</em> texture to metallic parameters both and check out the result.</p>
+<p><img class="aligncenter size-large wp-image-134717" src="./An introduction to materials &amp; Standard Shader in Unity – Marching Bytes_files/metal.png" alt="metal"></p>
+<p>Since the <em>camo</em> texture is an image with red &amp; white color, the whole material took on the metallic look. In case you are wondering why, white is a combination of RGB values of 255 each. Since the metallic value is set based on the R channel, the whole material has the metallic value set to 1.</p>
+<p>Itching to achieve the same result by using the Metal &amp; Smoothness sliders? Just remove the metallic texture &amp; pull the sliders to their max values.</p>
+<p><img class="aligncenter size-large wp-image-134718" src="./An introduction to materials &amp; Standard Shader in Unity – Marching Bytes_files/metal_slider.png" alt="metal_slider"></p>
+<h3>Normal Map</h3>
+<p>Normal maps are special types of textures which allow you to add surface details like scratches &amp; grooves to your material. Of course, these details can also be added directly to the 3D model that you are using. However, creating these details on the 3D models results in a higher number of polygons, which require more computation power to render. If we use normal maps to render these details, the graphics rendering hardware can easily render the details at a very low computation cost.</p>
+<p>Normal maps are special kind of images, which can be produced using 3D modeling applications or by hand. These textures store the information required by Unity to decide how the surface reacts to light. For more details, refer to the following link: <a href="http://docs.unity3d.com/Manual/StandardShaderMaterialParameterNormalMap.html" target="_blank">http://docs.unity3d.com/Manual/StandardShaderMaterialParameterNormalMap.html</a></p>
+<p>For the purpose of this article, we have created a normal map texture named <em>camo_normal</em>. Assign this texture to the normal map field of the material. Notice how the white colored area of the material is now bumped up &amp; the sphere appears to be an uneven surface.</p>
+<p><img class="aligncenter size-large wp-image-134719" src="./An introduction to materials &amp; Standard Shader in Unity – Marching Bytes_files/normal.png" alt="normal"></p>
+<h3>Height Map</h3>
+<p>Height mapping is a technique similar to normal mapping. However, this technique is more performance intensive compared to the normal mapping. Using heightmaps, it is possible to achieve a feel wherein the surfaces closer to the camera is more exaggerated as compared to the surface farther away from the camera. Most of the times, heightmaps are used in conjunction with normal maps.</p>
+<p><img class="aligncenter size-large wp-image-134713" src="./An introduction to materials &amp; Standard Shader in Unity – Marching Bytes_files/heightmap.png" alt="heightmap"></p>
+<h3>Occlusion</h3>
+<p>Occlusion maps are used to define the amount of indirect lighting incident on particular areas of your object. Occlusion maps are usually created in 3D applications based on the topology of the 3D model that this will be applied to. Occlusion maps are grayscale images, with white indicating areas that should receive full indirect lighting, and black indicating no indirect lighting.</p>
+<p>I know, I know. Occlusion maps are a bit difficult to wrap your head around. But, once you get the hang of it, it is quite easy to simulate realistic objects in your game. Beauty++ :]</p>
+<h3>Emission</h3>
+<p>The emission parameter controls the color &amp; intensity of the light emitted from the material. Once you set the emission values, the material will appear to lit up from the inside. Emission is enabled by setting the emission property to a value greater than 0. The emission values can be set by either supplying an emission color, setting up an emission texture or by a combination of these two values. If you supply the emission texture, the color values of the texture are used to define the emission color &amp; intensity.</p>
+<p><img class="aligncenter size-large wp-image-134711" src="./An introduction to materials &amp; Standard Shader in Unity – Marching Bytes_files/emission.png" alt="emission"></p>
+<h3>Detail Masks &amp; Detail Maps</h3>
+<p>Detail Maps allow you to define secondary textures for your material. Detail Masks allow you to mask areas of the material where the detail maps would be applied. Detail maps &amp; masks allow you to overlay secondary textures over the main textures, thus allowing you to add fine-grained details to your material.</p>
+<h2>Physically Based Shading &amp; Rendering</h2>
+<p>Unity applies Physically Based Shading (PBS) on all materials using the Standard Shader. PBS is an advanced lighting calculation model which allows the scene to appear more realistic under different lighting conditions. PBS calculates the sum total of all direct &amp; indirect light falling on the objects and then renders the scene.<br>
+Check out this cool gif &amp; notice the change in look and feel when the lighting conditions change:</p>
+<p><img class="aligncenter size-full wp-image-134706" src="./An introduction to materials &amp; Standard Shader in Unity – Marching Bytes_files/pbr.gif" alt="pbr"></p>
+<h2>Experimenting with other shader types</h2>
+<p>Apart from the Standard Shader, Unity also provides a couple of specialized shaders which can be used for different objects.</p>
+<h3>Skybox</h3>
+<p>Skybox is a special shader which can be applied to your scene to change the overall atmosphere. To create a skybox material, create a new material &amp; select <em>Skybox\Procedural</em> shader. This shader allows you to create a skybox material with defined sky parameters.</p>
+<p><img class="aligncenter size-full wp-image-134720" src="./An introduction to materials &amp; Standard Shader in Unity – Marching Bytes_files/skybox1.png" alt="skybox1"></p>
+<p>To apply the skybox to your scene, select <em>Window\Lighting</em>. In the lighting editor, select your material for the skybox.</p>
+<p><img class="aligncenter size-full wp-image-134714" src="./An introduction to materials &amp; Standard Shader in Unity – Marching Bytes_files/lighting.png" alt="lighting"></p>
+<p>The procedural skybox exposes a couple of parameters. Try playing around with these and notice the results in the scene.</p>
+<p><img class="aligncenter size-full wp-image-134707" src="./An introduction to materials &amp; Standard Shader in Unity – Marching Bytes_files/sky_fun.gif" alt="sky_fun" width="700" height="532"></p>
+<h3>Toon Shader</h3>
+<p>The toon shader is a specialized shader which allows you to add a cartoonish look to the objects. Toon shader is provided as a part of the Unity Standard Assets &amp; needs to be imported into your project separately.</p>
+<p>Select <em>Assets\Import Package\Effects</em>, and in the resulting window which opens, select Import.<br>
+Now that you have the toon shader imported into your project, create a new material &amp; select the <em>Toon\Basic Outline</em> shader. This shader allows you to define the outline of the object. Try experimenting with the other toon shader variants and see what you can come up with!</p>
+<p><img class="aligncenter size-full wp-image-134721" src="./An introduction to materials &amp; Standard Shader in Unity – Marching Bytes_files/toon.png" alt="toon" width="356" height="284"></p>
+<h2>Where to go from here?</h2>
+<p>I hope that you enjoyed this tutorial about creating materials using the Standard Shader.</p>
+<p>To learn more about materials &amp; shaders, I suggest that you check out the following resources:</p>
+<ul>
+<li><a href="http://docs.unity3d.com/Manual/Shaders.html" target="_blank">http://docs.unity3d.com/Manual/Shaders.html</a></li>
+<li><a href="https://unity3d.com/learn/tutorials/topics/graphics" target="_blank">https://unity3d.com/learn/tutorials/topics/graphics</a></li>
+</ul>
+<p>As always, keep checking this site for more tutorials. If you have any questions, feel free to reach out to me using the comments section below!</p>
+<div class="extra-hatom-entry-title"><span class="entry-title">An introduction to materials &amp; Standard Shader in Unity</span></div><!-- Simple Share Buttons Adder (7.4.17) simplesharebuttons.com --><div id="ssba-classic-2" class="ssba ssbp-wrap left ssbp--theme-1"><div style="text-align:left"><span class="ssba-share-text">Spread the word...</span><br><a data-site="" class="ssba_facebook_share" href="http://www.facebook.com/sharer.php?u=http://www.marchingbytes.com/an-introduction-to-materials-standard-shader-in-unity/" target="_blank"><img src="./An introduction to materials &amp; Standard Shader in Unity – Marching Bytes_files/facebook.png" style="width: 35px;" title="Facebook" class="ssba ssba-img" alt="Share on Facebook"><div title="Facebook" class="ssbp-text">Facebook</div></a><span class=" ssba_sharecount">7</span><a data-site="" class="ssba_twitter_share" href="http://twitter.com/share?url=http://www.marchingbytes.com/an-introduction-to-materials-standard-shader-in-unity/&amp;text=An%20introduction%20to%20materials%20%26%20Standard%20Shader%20in%20Unity%20" target="&quot;_blank&quot;"><img src="./An introduction to materials &amp; Standard Shader in Unity – Marching Bytes_files/twitter.png" style="width: 35px;" title="Twitter" class="ssba ssba-img" alt="Tweet about this on Twitter"><div title="Twitter" class="ssbp-text">Twitter</div></a><a data-site="" class="ssba_google_share" href="https://plus.google.com/share?url=http://www.marchingbytes.com/an-introduction-to-materials-standard-shader-in-unity/" target="&quot;_blank&quot;"><img src="./An introduction to materials &amp; Standard Shader in Unity – Marching Bytes_files/google.png" style="width: 35px;" title="Google+" class="ssba ssba-img" alt="Share on Google+"><div title="Google+" class="ssbp-text">Google+</div></a><span class=" ssba_sharecount">0</span><a data-site="linkedin" class="ssba_linkedin_share ssba_share_link" href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http://www.marchingbytes.com/an-introduction-to-materials-standard-shader-in-unity/" target="&quot;_blank&quot;"><img src="./An introduction to materials &amp; Standard Shader in Unity – Marching Bytes_files/linkedin.png" style="width: 35px;" title="LinkedIn" class="ssba ssba-img" alt="Share on LinkedIn"><div title="Linkedin" class="ssbp-text">Linkedin</div></a><a data-site="pinterest" class="ssba_pinterest_share" href="javascript:void((function()%7Bvar%20e=document.createElement(&#39;script&#39;);e.setAttribute(&#39;type&#39;,&#39;text/javascript&#39;);e.setAttribute(&#39;charset&#39;,&#39;UTF-8&#39;);e.setAttribute(&#39;src&#39;,&#39;//assets.pinterest.com/js/pinmarklet.js?r=&#39;+Math.random()*99999999);document.body.appendChild(e)%7D)());"><img src="./An introduction to materials &amp; Standard Shader in Unity – Marching Bytes_files/pinterest.png" style="width: 35px;" title="Pinterest" class="ssba ssba-img" alt="Pin on Pinterest"><div title="Pinterest" class="ssbp-text">Pinterest</div></a><span class=" ssba_sharecount">0</span><a data-site="reddit" class="ssba_reddit_share" href="http://reddit.com/submit?url=http://www.marchingbytes.com/an-introduction-to-materials-standard-shader-in-unity/&amp;title=An%20introduction%20to%20materials%20&amp;%20Standard%20Shader%20in%20Unity" target="&quot;_blank&quot;"><img src="./An introduction to materials &amp; Standard Shader in Unity – Marching Bytes_files/reddit.png" style="width: 35px;" title="Reddit" class="ssba ssba-img" alt="Share on Reddit"><div title="Reddit" class="ssbp-text">Reddit</div></a><span class=" ssba_sharecount">0</span><a data-site="tumblr" class="ssba_tumblr_share" href="http://www.tumblr.com/share/link?url=http://www.marchingbytes.com/an-introduction-to-materials-standard-shader-in-unity/" target="&quot;_blank&quot;"><img src="./An introduction to materials &amp; Standard Shader in Unity – Marching Bytes_files/tumblr.png" style="width: 35px;" title="tumblr" class="ssba ssba-img" alt="Share on Tumblr"><div title="Tumblr" class="ssbp-text">Tumblr</div></a><span class=" ssba_sharecount">0</span><a data-site="email" class="ssba_email_share" href="mailto:?subject=An%20introduction%20to%20materials%20%26%23038;%20Standard%20Shader%20in%20Unity&amp;body=%20http://www.marchingbytes.com/an-introduction-to-materials-standard-shader-in-unity/"><img src="./An introduction to materials &amp; Standard Shader in Unity – Marching Bytes_files/email.png" style="width: 35px;" title="Email" class="ssba ssba-img" alt="Email this to someone"><div title="email" class="ssbp-text">email</div></a></div></div>			<div class="tags">
+				Tagged on: <a href="http://www.marchingbytes.com/tag/material/" rel="tag">material</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.marchingbytes.com/tag/shader/" rel="tag">shader</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.marchingbytes.com/tag/standard-shader/" rel="tag">standard shader</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.marchingbytes.com/tag/unity/" rel="tag">unity</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.marchingbytes.com/tag/unity3d/" rel="tag">unity3d</a>			</div>
+				</div>
+
+	<footer class="entry-meta-bar clearfix"><div class="entry-meta clearfix">
+			<span class="by-author author vcard"><a class="url fn n" href="http://www.marchingbytes.com/author/preetminhasgmail-com/">PK</a></span>
+
+			<span class="date"><a href="http://www.marchingbytes.com/an-introduction-to-materials-standard-shader-in-unity/" title="6:24 pm" rel="bookmark"><time class="entry-date published" datetime="2016-07-10T18:24:27+00:00">July 10, 2016</time><time class="updated" datetime="2017-03-18T10:14:48+00:00">March 18, 2017</time></a></span>				<span class="category"><a href="http://www.marchingbytes.com/category/materials/" rel="category tag">materials</a>, <a href="http://www.marchingbytes.com/category/unity/" rel="category tag">unity</a>, <a href="http://www.marchingbytes.com/category/unity3d/" rel="category tag">unity3d</a></span>
+			</div></footer>
+	</article>
+						<ul class="default-wp-page clearfix">
+			<li class="previous"><a href="http://www.marchingbytes.com/iaas-vs-paas/" rel="prev"><span class="meta-nav">←</span> Deploying your app – IaaS vs PaaS : Which one to choose?</a></li>
+			<li class="next"></li>
+		</ul>
+	
+				
+			
+		</div><!-- #content -->
+	</div><!-- #primary -->
+
+	
+<div id="secondary">
+			
+		<aside id="search-2" class="widget widget_search"><form action="http://www.marchingbytes.com/" class="search-form searchform clearfix" method="get">
+	<div class="search-wrap">
+		<input type="text" placeholder="Search" class="s field" name="s">
+		<button class="search-icon" type="submit"></button>
+	</div>
+</form><!-- .searchform --></aside>		<aside id="recent-posts-2" class="widget widget_recent_entries">		<h3 class="widget-title"><span>Recent Posts</span></h3>		<ul>
+											<li>
+					<a href="http://www.marchingbytes.com/an-introduction-to-materials-standard-shader-in-unity/">An introduction to materials &amp; Standard Shader in Unity</a>
+									</li>
+											<li>
+					<a href="http://www.marchingbytes.com/iaas-vs-paas/">Deploying your app – IaaS vs PaaS : Which one to choose?</a>
+									</li>
+											<li>
+					<a href="http://www.marchingbytes.com/typescript-good-bad-no/">Typescript: The good, the bad &amp; why I am not using it (for now)</a>
+									</li>
+											<li>
+					<a href="http://www.marchingbytes.com/bytecontainer-devlog-0/">ByteContainer Devlog 0</a>
+									</li>
+											<li>
+					<a href="http://www.marchingbytes.com/o1-object-pool/">O(1) object pooling system</a>
+									</li>
+					</ul>
+		</aside><aside id="recent-comments-2" class="widget widget_recent_comments"><h3 class="widget-title"><span>Recent Comments</span></h3><ul id="recentcomments"><li class="recentcomments"><span class="comment-author-link">Nicole</span> on <a href="http://www.marchingbytes.com/xcode-howto-exporting-ipa-using-xcodebuild/#comment-87">Xcode howto: Exporting ipa using xcodebuild</a></li><li class="recentcomments"><span class="comment-author-link">PK</span> on <a href="http://www.marchingbytes.com/o1-object-pool/#comment-36">O(1) object pooling system</a></li><li class="recentcomments"><span class="comment-author-link">Kyle Poole</span> on <a href="http://www.marchingbytes.com/o1-object-pool/#comment-34">O(1) object pooling system</a></li></ul></aside><aside id="archives-2" class="widget widget_archive"><h3 class="widget-title"><span>Archives</span></h3>		<ul>
+			<li><a href="http://www.marchingbytes.com/2016/07/">July 2016</a></li>
+	<li><a href="http://www.marchingbytes.com/2015/12/">December 2015</a></li>
+	<li><a href="http://www.marchingbytes.com/2015/08/">August 2015</a></li>
+	<li><a href="http://www.marchingbytes.com/2015/03/">March 2015</a></li>
+	<li><a href="http://www.marchingbytes.com/2015/02/">February 2015</a></li>
+		</ul>
+		</aside><aside id="categories-2" class="widget widget_categories"><h3 class="widget-title"><span>Categories</span></h3>		<ul>
+	<li class="cat-item cat-item-5"><a href="http://www.marchingbytes.com/category/apple/">Apple</a>
+</li>
+	<li class="cat-item cat-item-4"><a href="http://www.marchingbytes.com/category/ios/">iOS</a>
+</li>
+	<li class="cat-item cat-item-13"><a href="http://www.marchingbytes.com/category/materials/">materials</a>
+</li>
+	<li class="cat-item cat-item-9"><a href="http://www.marchingbytes.com/category/object-pool/">object pool</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="http://www.marchingbytes.com/category/uncategorized/">Uncategorized</a>
+</li>
+	<li class="cat-item cat-item-10"><a href="http://www.marchingbytes.com/category/unity/">unity</a>
+</li>
+	<li class="cat-item cat-item-12"><a href="http://www.marchingbytes.com/category/unity3d/">unity3d</a>
+</li>
+	<li class="cat-item cat-item-11"><a href="http://www.marchingbytes.com/category/webdev/">webdev</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="http://www.marchingbytes.com/category/xcode/">Xcode</a>
+</li>
+		</ul>
+</aside>	</div>
+	
+
+        </div><!-- .inner-wrap -->
+    </div><!-- #main -->
+    
+        <footer id="colophon" class="clearfix ">
+        <div class="footer-widgets-wrapper">
+	<div class="inner-wrap">
+		<div class="footer-widgets-area clearfix">
+			<div class="tg-one-fourth tg-column-1">
+				<aside id="text-4" class="widget widget_text"><h3 class="widget-title"><span>Book a session</span></h3>			<div class="textwidget"><script data-codementor="preetminhas" data-style="badge" data-theme="light" src="./An introduction to materials &amp; Standard Shader in Unity – Marching Bytes_files/badge.js.下载" data-done="true"></script><style>@import url(https://fonts.googleapis.com/css?family=Raleway:400);.cm-inline-block {    display: inline-block !important;}.cm-text-center {    text-align: center !important;}.cm-vertical-top {    vertical-align: top !important;}.cm-vertical-middle {    vertical-align: middle !important;}.cm-border-radius {    border-radius: 3px !important;}.cm-letter-spacing {    letter-spacing: 0.0625em !important;}.cm-font-raleway {    font: 14px / 1.4 "Raleway", sans-serif !important;}.cm-font-raleway a {    color: #073648 !important;    text-decoration: none;}.cm-bold {    font-weight: bold !important;}.cm-white {    color: #fff !important;}.cm-color-highlight {    color: #70b1cb !important;}.cm-badge {    -webkit-font-smoothing: antialiased !important;    font: 14px "Raleway", sans-serif !important;    width: 238px !important;    border: 1px solid #ddd !important;    color: #073648 !important;    background: #fff !important;}.cm-badge-header {    margin: 10px 0 0 !important;    color: transparent !important;    background: url(https://www.codementor.io/assets/placeholder/codementor-logo-dark.png) 50% / 106px no-repeat !important;}.cm-badge-avatar {    width: 64px !important;    margin: 18px !important;    border-radius: 50% !important;}.cm-badge-mentor {    width: 132px !important;}.cm-badge-mentor-name {    font-size: 18px !important;    margin: 0 !important;    color: #073648 !important;}.cm-badge-mentor-rating {    margin: 5px 0 0 !important;}.cm-badge-expertise {    font-size: 14px !important;    width: 99px !important;    margin: 0 !important;    color: #073648 !important;}.cm-badge-list {    width: auto !important;    line-height: 1.4 !important;    margin: 0 0 20px !important;    padding: 0 !important;    list-style: none !important;}.cm-badge-footer {    padding: 10px 15px !important;    background: #ebebeb !important;}.cm-badge-book {    font: 700 12px "Helvetica Neue", Helvetica, Arial, sans-serif !important;    text-transform: uppercase !important;    text-decoration: none !important;    width: 100% !important;    border-bottom: 2px solid #47799d !important;    padding: 10px 0 !important;    background: #3e90ca !important;}</style><div><div class="cm-badge cm-border-radius">    <div class="cm-badge-header">Codementor</div>    <div>        <img class="cm-badge-avatar cm-inline-block cm-vertical-middle" src="./An introduction to materials &amp; Standard Shader in Unity – Marching Bytes_files/1a9f288ea4c05c0c209721bc22418680.jpeg">        <div class="cm-badge-mentor cm-inline-block cm-vertical-middle">            <h1 class="cm-badge-mentor-name cm-font-raleway cm-bold">Preet Minhas</h1>            <p class="cm-badge-mentor-rating cm-letter-spacing cm-font-raleway cm-color-highlight">★★★★★        </p></div>    </div>    <div>        <h2 class="cm-badge-expertise cm-inline-block cm-text-center cm-vertical-top cm-font-raleway cm-bold cm-color-highlight">Expertise</h2>        <ul class="cm-badge-list cm-inline-block cm-vertical-top"><li class="cm-font-raleway"><a href="https://www.codementor.io/ios-experts">iOS</a></li><li class="cm-font-raleway"><a href="https://www.codementor.io/nodejs-experts">Node.js</a></li><li class="cm-font-raleway"><a href="https://www.codementor.io/mongodb-experts">MongoDB</a></li><li class="cm-font-raleway">…</li>        </ul>    </div>    <div class="cm-badge-footer cm-text-center">        <a class="cm-badge-book cm-inline-block cm-border-radius cm-letter-spacing cm-white" href="https://www.codementor.io/preetminhas?utm_campaign=profile&amp;utm_source=badge-preetminhas&amp;utm_medium=light" target="_blank">Book 1:1 Session</a>    </div></div></div></div>
+		</aside>			</div>
+			<div class="tg-one-fourth tg-column-2">
+						<aside id="recent-posts-3" class="widget widget_recent_entries">		<h3 class="widget-title"><span>Recent Blog Posts</span></h3>		<ul>
+											<li>
+					<a href="http://www.marchingbytes.com/an-introduction-to-materials-standard-shader-in-unity/">An introduction to materials &amp; Standard Shader in Unity</a>
+									</li>
+											<li>
+					<a href="http://www.marchingbytes.com/iaas-vs-paas/">Deploying your app – IaaS vs PaaS : Which one to choose?</a>
+									</li>
+											<li>
+					<a href="http://www.marchingbytes.com/typescript-good-bad-no/">Typescript: The good, the bad &amp; why I am not using it (for now)</a>
+									</li>
+											<li>
+					<a href="http://www.marchingbytes.com/bytecontainer-devlog-0/">ByteContainer Devlog 0</a>
+									</li>
+											<li>
+					<a href="http://www.marchingbytes.com/o1-object-pool/">O(1) object pooling system</a>
+									</li>
+					</ul>
+		</aside>			</div>
+			<div class="tg-one-fourth tg-after-two-blocks-clearfix tg-column-3">
+				<aside id="do-etfw-2" class="widget widget-do-etfw">					<h3 class="widget-title"><span>Follow me on Twitter</span></h3>		
+		<a class="twitter-timeline" data-height="400" data-theme="dark" data-link-color="#3b94d9" data-border-color="#f5f5f5" data-chrome="noheader nofooter noborders transparent" href="https://twitter.com/pkMinhas">Tweets by @pkMinhas</a>
+</aside>			</div>
+			<div class="tg-one-fourth tg-one-fourth-last tg-column-4">
+				<aside id="text-3" class="widget widget_text"><h3 class="widget-title"><span>Get In Touch</span></h3>			<div class="textwidget"><a href="https://twitter.com/pkMinhas" class="twitter-follow-button" data-show-count="false">Follow @pkMinhas</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+<a class="fasc-button fasc-size-medium fasc-type-flat fasc-rounded-medium ico-fa fasc-ico-before fa-pencil-square-o" style="background-color: #339e45; color: #ffffff;" href="mailto:contact@marchingbytes.com" data-fasc-style="background-color:#339e45;color:#ffffff;">contact@marchingbytes.com</a></div>
+		</aside>			</div>
+		</div>
+	</div>
+</div>
+        <div class="footer-socket-wrapper clearfix">
+            <div class="inner-wrap">
+                <div class="footer-socket-area">
+                    <div class="copyright">Copyright © 2018 <a href="http://www.marchingbytes.com/" title="Marching Bytes"><span>Marching Bytes</span></a>. Powered by <a href="https://wordpress.org/" target="_blank" title="WordPress"><span>WordPress</span></a>. Theme: Spacious by <a href="https://themegrill.com/themes/spacious" target="_blank" title="ThemeGrill" rel="author"><span>ThemeGrill</span></a>.</div>                    <nav class="small-menu clearfix">
+                                            </nav>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <a href="http://www.marchingbytes.com/an-introduction-to-materials-standard-shader-in-unity/#masthead" id="scroll-up" style="display: inline;"></a>
+</div><!-- #page -->
+<script>
+    jQuery(document).ready(function () {
+		jQuery.post('http://www.marchingbytes.com?ga_action=googleanalytics_get_script', {action: 'googleanalytics_get_script'}, function(response) {
+			var F = new Function ( response );
+			return( F() );
+		});
+    });
+</script><link rel="stylesheet" id="simple-share-buttons-adder-ssba-css" href="./An introduction to materials &amp; Standard Shader in Unity – Marching Bytes_files/ssba.css" type="text/css" media="all">
+<style id="simple-share-buttons-adder-ssba-inline-css" type="text/css">
+	.ssba {
+									padding: 10px;
+									
+									
+									
+								}
+								.ssba img
+								{
+									width: 35px !important;
+									padding: 6px;
+									border:  0;
+									box-shadow: none !important;
+									display: inline !important;
+									vertical-align: middle;
+									box-sizing: unset;
+								}
+								
+								#ssba-classic-2 .ssbp-text {
+									display: none!important;
+								}
+								
+								.ssba .fb-save
+								{
+								padding: 6px;
+								line-height: 30px; }
+								.ssba, .ssba a
+								{
+									text-decoration:none;
+									background: none;
+									font-family: Indie Flower;
+									font-size: 20px;
+									
+									
+								}
+								 .ssba_sharecount:after, .ssba_sharecount:before {
+									right: 100%;
+									border: solid transparent;
+									content: " ";
+									height: 0;
+									width: 0;
+									position: absolute;
+									pointer-events: none;
+								}
+								.ssba_sharecount:after {
+									border-color: rgba(224, 221, 221, 0);
+									border-right-color: #f5f5f5;
+									border-width: 5px;
+									top: 50%;
+									margin-top: -5px;
+								}
+								.ssba_sharecount:before {
+									border-color: rgba(85, 94, 88, 0);
+									border-right-color: #e0dddd;
+									border-width: 6px;
+									top: 50%;
+									margin-top: -6px;
+								}
+								.ssba_sharecount {
+									font: 11px Arial, Helvetica, sans-serif;
+
+									padding: 5px;
+									-khtml-border-radius: 6px;
+									-o-border-radius: 6px;
+									-webkit-border-radius: 6px;
+									-moz-border-radius: 6px;
+									border-radius: 6px;
+									position: relative;
+									border: 1px solid #e0dddd;color: #555e58;
+										background: #f5f5f5;
+									}
+									.ssba_sharecount:after {
+										border-right-color: #f5f5f5;
+									}
+@font-face {
+				font-family: 'ssbp';
+				src:url('http://www.marchingbytes.com/wp-content/plugins/simple-share-buttons-adder/fonts/ssbp.eot?xj3ol1');
+				src:url('http://www.marchingbytes.com/wp-content/plugins/simple-share-buttons-adder/fonts/ssbp.eot?#iefixxj3ol1') format('embedded-opentype'),
+					url('http://www.marchingbytes.com/wp-content/plugins/simple-share-buttons-adder/fonts/ssbp.woff?xj3ol1') format('woff'),
+					url('http://www.marchingbytes.com/wp-content/plugins/simple-share-buttons-adder/fonts/ssbp.ttf?xj3ol1') format('truetype'),
+					url('http://www.marchingbytes.com/wp-content/plugins/simple-share-buttons-adder/fonts/ssbp.svg?xj3ol1#ssbp') format('svg');
+				font-weight: normal;
+				font-style: normal;
+
+				/* Better Font Rendering =========== */
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+			}
+</style>
+<script type="text/javascript" src="./An introduction to materials &amp; Standard Shader in Unity – Marching Bytes_files/ssba.js.下载"></script>
+<script type="text/javascript">
+Main.boot( [] );
+</script>
+<script type="text/javascript" src="./An introduction to materials &amp; Standard Shader in Unity – Marching Bytes_files/navigation.js.下载"></script>
+<script type="text/javascript" src="./An introduction to materials &amp; Standard Shader in Unity – Marching Bytes_files/twitter-widgets.js.下载"></script>
+<script type="text/javascript" src="./An introduction to materials &amp; Standard Shader in Unity – Marching Bytes_files/wp-embed.min.js.下载"></script>
+<script type="text/javascript" id="slb_context">/* <![CDATA[ */if ( !!window.jQuery ) {(function($){$(document).ready(function(){if ( !!window.SLB ) { {$.extend(SLB, {"context":["public","user_guest"]});} }})})(jQuery);}/* ]]> */</script>
+
+
+</body></html>

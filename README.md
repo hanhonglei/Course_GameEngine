@@ -32,6 +32,10 @@ Text book [Principle and Application of Game Engine](http://www.hep.com.cn/book/
 |15.|3	|2			|联网技术								|开发联网游戏		|
 |16.|3	|2			|使用游戏引擎进行游戏开发方法			|按照游戏开发流程利用教学游戏引擎进行游戏作品开发|
 
+## Resources
+
+1. [30 Things Every Unity Developer Should Know](https://cgcookie.com/articles/30-things-every-unity-developer-should-know)
+
 ----
 
 - This project is under [GNU GENERAL PUBLIC LICENSE](https://www.gnu.org/licenses/), please check it in the root folder.
